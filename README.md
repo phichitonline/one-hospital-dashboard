@@ -15,8 +15,10 @@
 ## License
 
 พัฒนาด้วย Laravel 9 + Livewire รองรับ PHP เวอร์ชั่น 8.1 ขึ้นไป
+
 โดย ณัฐพงศ์ เครือเทศ (Dr.GHOST)
-Tel/LineID 0619921666 
+Tel/LineID 0619921666
+
 โรงพยาบาลสมเด็จพระยุพราชตะพานหิน จ.พิจิตร
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
