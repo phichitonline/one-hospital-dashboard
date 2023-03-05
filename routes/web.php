@@ -1,16 +1,17 @@
 <?php
 
+use App\Http\Livewire\SearchUsers;
 use App\Http\Livewire\Stat\StatEr;
 use App\Http\Livewire\Stat\StatIpd;
 use App\Http\Livewire\Stat\StatOpd;
 use App\Http\Livewire\Reports\Index;
+use App\Http\Livewire\Stat\StatDent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\Dashboard\Dashboard;
 use App\Http\Livewire\Dashboard\DashboardIpd;
 use App\Http\Livewire\Dashboard\DashboardOpd;
-use App\Http\Livewire\SearchUsers;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,7 @@ Route::prefix('stat')->group(function () {
     Route::get('/opd', StatOpd::class)->name('stat.opd');
     Route::get('/ipd', StatIpd::class)->name('stat.ipd');
     Route::get('/er', StatEr::class)->name('stat.er');
+    Route::get('/dent', StatDent::class)->name('stat.dent');
 });
 
 

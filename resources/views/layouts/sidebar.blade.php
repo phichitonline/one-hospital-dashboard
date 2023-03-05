@@ -100,7 +100,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="@yield('activemenu_stat_dent')">
+                            <a href="{{ route('stat.dent') }}" class="@yield('activemenu_stat_dent')">
                                 <i class="metismenu-icon"></i>
                                 ทันตกรรม
                             </a>

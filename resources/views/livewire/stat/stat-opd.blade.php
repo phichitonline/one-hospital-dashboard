@@ -17,7 +17,7 @@
             <div>
                 <div class="page-title-head center-elem">
                     <span class="d-inline-block pe-2">
-                        <i class="fa fa-bed opacity-9"></i>
+                        <i class="fa fa-user-md opacity-9"></i>
                     </span>
                     <span class="d-inline-block">@yield('pagetitle')</span>
                 </div>

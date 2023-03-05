@@ -2,19 +2,41 @@
 
 namespace App\Http\Livewire\Stat;
 
-use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 
-class StatEr extends Component
+class StatDent extends Component
 {
     public $year;
-
-    protected $queryString = ['year'];
 
     public function mount()
     {
 
+    }
+
+    public $postCount = 0;
+    public $count_er_month,$count_er_dril10,$count_er_dril11,$count_er_dril12
+        ,$count_er_dril1,$count_er_dril2,$count_er_dril3,$count_er_dril4,$count_er_dril5
+        ,$count_er_dril6,$count_er_dril8,$count_er_dril9;
+
+
+    public function dehydrate(){
+        $this->dispatchBrowserEvent('year', [
+            'myeare' => $this->year,
+            'ermonth' => $this->count_er_month,
+            'count_er_dril10' => $this->count_er_dril10,
+            'count_er_dril11' => $this->count_er_dril11,
+            'count_er_dril12' => $this->count_er_dril12,
+            'count_er_dril1' => $this->count_er_dril1,
+            'count_er_dril2' => $this->count_er_dril2,
+            'count_er_dril3' => $this->count_er_dril3,
+            'count_er_dril4' => $this->count_er_dril4,
+            'count_er_dril5' => $this->count_er_dril5,
+            'count_er_dril6' => $this->count_er_dril6,
+            'count_er_dril7' => $this->count_er_dril7,
+            'count_er_dril8' => $this->count_er_dril8,
+            'count_er_dril9' => $this->count_er_dril9
+        ]);
     }
 
     public function render()
@@ -45,21 +67,7 @@ class StatEr extends Component
             $enddate2 = date('j ').$TH_Month[$nMonth];
         }
 
-        $count_er = DB::connection('mysql_hos')->select('
-        SELECT et.er_pt_type,et.name,COUNT(*) AS ercount
-        FROM er_regist er
-        LEFT JOIN er_pt_type et ON er.er_pt_type = et.er_pt_type
-        WHERE er.vstdate BETWEEN "'.$myearb.'-10-01" AND "'.$myeare.'-09-30"
-        GROUP BY er.er_pt_type
-        ORDER BY er.er_pt_type ASC
-        ');
-        $count_er_type1 = $count_er[0]->ercount;
-        $count_er_type2 = $count_er[1]->ercount;
-        $count_er_type3 = $count_er[2]->ercount;
-        $count_er_type4 = $count_er[3]->ercount;
-        $count_er_type5 = $count_er[4]->ercount;
-
-        $count_er_month = DB::connection('mysql_hos')->select('
+        $this->count_er_month = DB::connection('mysql_hos')->select('
         SELECT mn.tnamefull AS name,COUNT(*) AS y,mn.tnamefull AS drilldown
         FROM er_regist er
         LEFT JOIN er_pt_type et ON er.er_pt_type = et.er_pt_type
@@ -69,7 +77,7 @@ class StatEr extends Component
         ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC
         ');
 
-        $count_er_dril10 = array();
+        $this->count_er_dril10 = array();
         $count_er_dril10 = DB::connection('mysql_hos')->select('
         SELECT et.name,COUNT(*) AS ercount
         FROM er_regist er
@@ -80,10 +88,10 @@ class StatEr extends Component
         ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC,et.accident_code DESC,er.er_pt_type ASC
         ');
         foreach($count_er_dril10 as $data) {
-        array_push($count_er_dril10,[$data->name,$data->ercount]);
+        array_push($this->count_er_dril10,[$data->name,$data->ercount]);
         }
 
-        $count_er_dril11 = array();
+        $this->count_er_dril11 = array();
         $count_er_dril11 = DB::connection('mysql_hos')->select('
         SELECT et.name,COUNT(*) AS ercount
         FROM er_regist er
@@ -94,10 +102,10 @@ class StatEr extends Component
         ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC,et.accident_code DESC,er.er_pt_type ASC
         ');
         foreach($count_er_dril11 as $data) {
-        array_push($count_er_dril11,[$data->name,$data->ercount]);
+        array_push($this->count_er_dril11,[$data->name,$data->ercount]);
         }
 
-        $count_er_dril12 = array();
+        $this->count_er_dril12 = array();
         $count_er_dril12 = DB::connection('mysql_hos')->select('
         SELECT et.name,COUNT(*) AS ercount
         FROM er_regist er
@@ -108,10 +116,10 @@ class StatEr extends Component
         ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC,et.accident_code DESC,er.er_pt_type ASC
         ');
         foreach($count_er_dril12 as $data) {
-        array_push($count_er_dril12,[$data->name,$data->ercount]);
+        array_push($this->count_er_dril12,[$data->name,$data->ercount]);
         }
 
-        $count_er_dril1 = array();
+        $this->count_er_dril1 = array();
         $count_er_dril1 = DB::connection('mysql_hos')->select('
         SELECT et.name,COUNT(*) AS ercount
         FROM er_regist er
@@ -122,10 +130,10 @@ class StatEr extends Component
         ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC,et.accident_code DESC,er.er_pt_type ASC
         ');
         foreach($count_er_dril1 as $data) {
-        array_push($count_er_dril1,[$data->name,$data->ercount]);
+        array_push($this->count_er_dril1,[$data->name,$data->ercount]);
         }
 
-        $count_er_dril2 = array();
+        $this->count_er_dril2 = array();
         $count_er_dril2 = DB::connection('mysql_hos')->select('
         SELECT et.name,COUNT(*) AS ercount
         FROM er_regist er
@@ -136,10 +144,10 @@ class StatEr extends Component
         ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC,et.accident_code DESC,er.er_pt_type ASC
         ');
         foreach($count_er_dril2 as $data) {
-        array_push($count_er_dril2,[$data->name,$data->ercount]);
+        array_push($this->count_er_dril2,[$data->name,$data->ercount]);
         }
 
-        $count_er_dril3 = array();
+        $this->count_er_dril3 = array();
         $count_er_dril3 = DB::connection('mysql_hos')->select('
         SELECT et.name,COUNT(*) AS ercount
         FROM er_regist er
@@ -150,10 +158,10 @@ class StatEr extends Component
         ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC,et.accident_code DESC,er.er_pt_type ASC
         ');
         foreach($count_er_dril3 as $data) {
-        array_push($count_er_dril3,[$data->name,$data->ercount]);
+        array_push($this->count_er_dril3,[$data->name,$data->ercount]);
         }
 
-        $count_er_dril4 = array();
+        $this->count_er_dril4 = array();
         $count_er_dril4 = DB::connection('mysql_hos')->select('
         SELECT et.name,COUNT(*) AS ercount
         FROM er_regist er
@@ -164,10 +172,10 @@ class StatEr extends Component
         ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC,et.accident_code DESC,er.er_pt_type ASC
         ');
         foreach($count_er_dril4 as $data) {
-        array_push($count_er_dril4,[$data->name,$data->ercount]);
+        array_push($this->count_er_dril4,[$data->name,$data->ercount]);
         }
 
-        $count_er_dril5 = array();
+        $this->count_er_dril5 = array();
         $count_er_dril5 = DB::connection('mysql_hos')->select('
         SELECT et.name,COUNT(*) AS ercount
         FROM er_regist er
@@ -178,10 +186,10 @@ class StatEr extends Component
         ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC,et.accident_code DESC,er.er_pt_type ASC
         ');
         foreach($count_er_dril5 as $data) {
-        array_push($count_er_dril5,[$data->name,$data->ercount]);
+        array_push($this->count_er_dril5,[$data->name,$data->ercount]);
         }
 
-        $count_er_dril6 = array();
+        $this->count_er_dril6 = array();
         $count_er_dril6 = DB::connection('mysql_hos')->select('
         SELECT et.name,COUNT(*) AS ercount
         FROM er_regist er
@@ -192,10 +200,10 @@ class StatEr extends Component
         ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC,et.accident_code DESC,er.er_pt_type ASC
         ');
         foreach($count_er_dril6 as $data) {
-        array_push($count_er_dril6,[$data->name,$data->ercount]);
+        array_push($this->count_er_dril6,[$data->name,$data->ercount]);
         }
 
-        $count_er_dril7 = array();
+        $this->count_er_dril7 = array();
         $count_er_dril7 = DB::connection('mysql_hos')->select('
         SELECT et.name,COUNT(*) AS ercount
         FROM er_regist er
@@ -206,10 +214,10 @@ class StatEr extends Component
         ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC,et.accident_code DESC,er.er_pt_type ASC
         ');
         foreach($count_er_dril7 as $data) {
-        array_push($count_er_dril7,[$data->name,$data->ercount]);
+        array_push($this->count_er_dril7,[$data->name,$data->ercount]);
         }
 
-        $count_er_dril8 = array();
+        $this->count_er_dril8 = array();
         $count_er_dril8 = DB::connection('mysql_hos')->select('
         SELECT et.name,COUNT(*) AS ercount
         FROM er_regist er
@@ -220,10 +228,10 @@ class StatEr extends Component
         ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC,et.accident_code DESC,er.er_pt_type ASC
         ');
         foreach($count_er_dril8 as $data) {
-        array_push($count_er_dril8,[$data->name,$data->ercount]);
+        array_push($this->count_er_dril8,[$data->name,$data->ercount]);
         }
 
-        $count_er_dril9 = array();
+        $this->count_er_dril9 = array();
         $count_er_dril9 = DB::connection('mysql_hos')->select('
         SELECT et.name,COUNT(*) AS ercount
         FROM er_regist er
@@ -234,126 +242,17 @@ class StatEr extends Component
         ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC,et.accident_code DESC,er.er_pt_type ASC
         ');
         foreach($count_er_dril9 as $data) {
-        array_push($count_er_dril9,[$data->name,$data->ercount]);
+        array_push($this->count_er_dril9,[$data->name,$data->ercount]);
         }
 
+        // $this->emit('year');
 
-        // แยกประเภท
-
-        $count_er_pttype = DB::connection('mysql_hos')->select('
-        SELECT et.name,COUNT(*) AS y,et.name AS drilldown
-        FROM er_regist er
-        LEFT JOIN er_pt_type et ON er.er_pt_type = et.er_pt_type
-        LEFT JOIN hosinfo_12month mn ON DATE_FORMAT(er.vstdate,"%m") = mn.mid
-        WHERE er.vstdate BETWEEN "'.$myearb.'-10-01" AND "'.$myeare.'-09-30"
-        GROUP BY er.er_pt_type
-        ORDER BY et.accident_code DESC,er.er_pt_type ASC
-        ');
-
-        $count_er_pttdril1 = array();
-        $count_er_pttdril1 = DB::connection('mysql_hos')->select('
-        SELECT mn.tnamefull AS name,COUNT(*) AS ercount
-        FROM er_regist er
-        LEFT JOIN er_pt_type et ON er.er_pt_type = et.er_pt_type
-        LEFT JOIN hosinfo_12month mn ON DATE_FORMAT(er.vstdate,"%m") = mn.mid
-        WHERE er.vstdate BETWEEN "'.$myearb.'-10-01" AND "'.$myeare.'-09-30" AND er.er_pt_type = 1
-        GROUP BY DATE_FORMAT(er.vstdate,"%Y-%m")
-        ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC
-        ');
-        foreach($count_er_pttdril1 as $data) {
-        array_push($count_er_pttdril1,[$data->name,$data->ercount]);
-        }
-
-        $count_er_pttdril2 = array();
-        $count_er_pttdril2 = DB::connection('mysql_hos')->select('
-        SELECT mn.tnamefull AS name,COUNT(*) AS ercount
-        FROM er_regist er
-        LEFT JOIN er_pt_type et ON er.er_pt_type = et.er_pt_type
-        LEFT JOIN hosinfo_12month mn ON DATE_FORMAT(er.vstdate,"%m") = mn.mid
-        WHERE er.vstdate BETWEEN "'.$myearb.'-10-01" AND "'.$myeare.'-09-30" AND er.er_pt_type = 2
-        GROUP BY DATE_FORMAT(er.vstdate,"%Y-%m")
-        ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC
-        ');
-        foreach($count_er_pttdril2 as $data) {
-        array_push($count_er_pttdril2,[$data->name,$data->ercount]);
-        }
-
-        $count_er_pttdril3 = array();
-        $count_er_pttdril3 = DB::connection('mysql_hos')->select('
-        SELECT mn.tnamefull AS name,COUNT(*) AS ercount
-        FROM er_regist er
-        LEFT JOIN er_pt_type et ON er.er_pt_type = et.er_pt_type
-        LEFT JOIN hosinfo_12month mn ON DATE_FORMAT(er.vstdate,"%m") = mn.mid
-        WHERE er.vstdate BETWEEN "'.$myearb.'-10-01" AND "'.$myeare.'-09-30" AND er.er_pt_type = 3
-        GROUP BY DATE_FORMAT(er.vstdate,"%Y-%m")
-        ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC
-        ');
-        foreach($count_er_pttdril3 as $data) {
-        array_push($count_er_pttdril3,[$data->name,$data->ercount]);
-        }
-
-        $count_er_pttdril4 = array();
-        $count_er_pttdril4 = DB::connection('mysql_hos')->select('
-        SELECT mn.tnamefull AS name,COUNT(*) AS ercount
-        FROM er_regist er
-        LEFT JOIN er_pt_type et ON er.er_pt_type = et.er_pt_type
-        LEFT JOIN hosinfo_12month mn ON DATE_FORMAT(er.vstdate,"%m") = mn.mid
-        WHERE er.vstdate BETWEEN "'.$myearb.'-10-01" AND "'.$myeare.'-09-30" AND er.er_pt_type = 4
-        GROUP BY DATE_FORMAT(er.vstdate,"%Y-%m")
-        ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC
-        ');
-        foreach($count_er_pttdril4 as $data) {
-        array_push($count_er_pttdril4,[$data->name,$data->ercount]);
-        }
-
-        $count_er_pttdril5 = array();
-        $count_er_pttdril5 = DB::connection('mysql_hos')->select('
-        SELECT mn.tnamefull AS name,COUNT(*) AS ercount
-        FROM er_regist er
-        LEFT JOIN er_pt_type et ON er.er_pt_type = et.er_pt_type
-        LEFT JOIN hosinfo_12month mn ON DATE_FORMAT(er.vstdate,"%m") = mn.mid
-        WHERE er.vstdate BETWEEN "'.$myearb.'-10-01" AND "'.$myeare.'-09-30" AND er.er_pt_type = 5
-        GROUP BY DATE_FORMAT(er.vstdate,"%Y-%m")
-        ORDER BY DATE_FORMAT(er.vstdate,"%Y-%m") ASC
-        ');
-        foreach($count_er_pttdril5 as $data) {
-        array_push($count_er_pttdril5,[$data->name,$data->ercount]);
-        }
-
-
-        return view('livewire.stat.stat-er', [
+        return view('livewire.stat.stat-dent', [
 
             'myearb' => $myearb,
             'myeare' => $myeare,
             'enddate' => $enddate,
             'enddate2' => $enddate2,
-
-            'count_er_pttype' => $count_er_pttype,
-            'count_er_type1' => $count_er_type1,
-            'count_er_type2' => $count_er_type2,
-            'count_er_type3' => $count_er_type3,
-            'count_er_type4' => $count_er_type4,
-            'count_er_type5' => $count_er_type5,
-
-            'count_er_pttdril1' => $count_er_pttdril1,
-            'count_er_pttdril2' => $count_er_pttdril2,
-            'count_er_pttdril3' => $count_er_pttdril3,
-            'count_er_pttdril4' => $count_er_pttdril4,
-            'count_er_pttdril5' => $count_er_pttdril5,
-
-            'count_er_month' => $count_er_month,
-            'count_er_dril10' => $count_er_dril10,
-            'count_er_dril11' => $count_er_dril11,
-            'count_er_dril12' => $count_er_dril12,
-            'count_er_dril1' => $count_er_dril1,
-            'count_er_dril2' => $count_er_dril2,
-            'count_er_dril3' => $count_er_dril3,
-            'count_er_dril4' => $count_er_dril4,
-            'count_er_dril5' => $count_er_dril5,
-            'count_er_dril6' => $count_er_dril6,
-            'count_er_dril7' => $count_er_dril7,
-            'count_er_dril8' => $count_er_dril8,
-            'count_er_dril9' => $count_er_dril9,
 
         ])->layout('livewire.layouts.base');
     }

@@ -12,9 +12,19 @@
 - ข้อมูลราย Record ที่สามารถ export เป็น excel ได้
 - มีระบบตัวชี้วัดโรงพยาบาล ในรูปแบบ Scorecard Cockpit
 
-## License
+## การติดตั้งใช้งาน
 
-พัฒนาด้วย Laravel 9 + Livewire รองรับ PHP เวอร์ชั่น 8.1 ขึ้นไป
+พัฒนาด้วย Laravel framework 9 + Livewire 2 รองรับ PHP เวอร์ชั่น 8.1 ขึ้นไป
+
+1. ติดตั้งด้วยคำสั่ง git clone https://github.com/phichitonline/hosinfo-v2.git
+2. ติดตั้ง Library ด้วยคำสั่ง composer install
+3. สร้างฐานข้อมูล
+4. copy ไฟล์ .env.example -> .env ตั้งค่าเชื่อมต่อฐานข้อมูล
+5. php artisan key:generate
+6. สร้างตารางข้อมูลด้วยคำสั่ง php artisan migrate
+7. chmod 777 folder ต่อไปนี้ storage, bootstrap/cache
+
+## License
 
 โดย ณัฐพงศ์ เครือเทศ (Dr.GHOST)
 Tel/LineID 0619921666

@@ -43,13 +43,13 @@
         </div>
         <div class="page-title-actions">
 
-            <select wire:model='year' name="year" id="year" class="btn-shadow dropdown-toggle btn-dashed btn btn-outline-primary">
+            {{-- <select wire:model='year' name="year" id="year" class="btn-shadow dropdown-toggle btn-dashed btn btn-outline-primary">
                 <option value="2566">ปีงบประมาณ 2566</option>
                 <option value="2565">ปีงบประมาณ 2565</option>
                 <option value="2564">ปีงบประมาณ 2564</option>
-            </select>
+            </select> --}}
 
-            {{-- <div class="d-inline-block dropdown">
+            <div class="d-inline-block dropdown">
 
                 <button type="button" data-bs-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" class="btn-shadow dropdown-toggle btn-dashed btn btn-outline-primary">
@@ -62,21 +62,21 @@
                 <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('er') }}/?year=2566">
+                            <a class="nav-link" href="{{ route('stat.er') }}/?year=2566">
                                 <i class="nav-link-icon lnr-calendar-full"></i>
                                 <span> ปีงบประมาณ </span>
                                 <div class="ms-auto badge rounded-pill bg-danger">2566</div>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('er') }}/?year=2565">
+                            <a class="nav-link" href="{{ route('stat.er') }}/?year=2565">
                                 <i class="nav-link-icon lnr-calendar-full"></i>
                                 <span> ปีงบประมาณ </span>
                                 <div class="ms-auto badge rounded-pill bg-primary">2565</div>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('er') }}/?year=2564">
+                            <a class="nav-link" href="{{ route('stat.er') }}/?year=2564">
                                 <i class="nav-link-icon lnr-calendar-full"></i>
                                 <span> ปีงบประมาณ </span>
                                 <div class="ms-auto badge rounded-pill bg-primary">2564</div>
@@ -85,7 +85,7 @@
 
                     </ul>
                 </div>
-            </div> --}}
+            </div>
 
             <button type="button" data-bs-toggle="tooltip" data-bs-placement="left"
                 class="btn btn-primary" title="@yield('pagetitle')">
@@ -109,40 +109,6 @@
         </div>
     </div>
 </div>
-
-{{-- <div class="mb-3 card">
-    <div class="card-header">
-        <i class="header-icon pe-7s-graph3 btn-icon-wrapper font-size-xlg me-2"></i>
-        <h5 class="mt-2">ข้อมูลและสถิติ@yield('pagetitle') (1 ต.ค.2565 - 11 ก.พ.2566) {{ $enddate2 }}</h5>
-        <div class="btn-actions-pane-right">
-            <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
-                <li class="nav-item">
-                    <a role="tab" class="nav-link" id="tab-3" data-bs-toggle="tab" href="#tab-eg6-3">
-                        <span>[ อื่นๆ ]</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a role="tab" class="nav-link" id="tab-2" data-bs-toggle="tab" href="#tab-eg6-2">
-                        <span>[ ข้อมูล ]</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a role="tab" class="nav-link" id="tab-1" data-bs-toggle="tab" href="#tab-eg6-1">
-                        <span>[ รายงาน ]</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a role="tab" class="nav-link active" id="tab-0" data-bs-toggle="tab" href="#tab-eg6-0">
-                        <span>[ สรุป ]</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div> --}}
-
-
-
 
 
 <div class="tab-content">
@@ -1041,7 +1007,6 @@
         }
     });
 
-
     var erpttype =  {{ Js::from($count_er_pttype) }};
     var pttdril1 =  {{ Js::from($count_er_pttdril1) }};
     var pttdril2 =  {{ Js::from($count_er_pttdril2) }};
@@ -1170,72 +1135,72 @@
                 }
             }]
         }
-});
+    });
 
-Highcharts.chart('container3', {
-  chart: {
-    plotBackgroundColor: null,
-    plotBorderWidth: null,
-    plotShadow: false,
-    type: 'pie'
-  },
-  title: {
-    text: 'Browser market shares in May, 2020',
-    align: 'left'
-  },
-  tooltip: {
-    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-  },
-  accessibility: {
-    point: {
-      valueSuffix: '%'
-    }
-  },
-  plotOptions: {
-    pie: {
-      allowPointSelect: true,
-      cursor: 'pointer',
-      dataLabels: {
-        enabled: true,
-        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-      }
-    }
-  },
-  series: [{
-    name: 'Brands',
-    colorByPoint: true,
-    data: [{
-      name: 'Chrome',
-      y: 70.67,
-      sliced: true,
-      selected: true
-    }, {
-      name: 'Edge',
-      y: 14.77
-    },  {
-      name: 'Firefox',
-      y: 4.86
-    }, {
-      name: 'Safari',
-      y: 2.63
-    }, {
-      name: 'Internet Explorer',
-      y: 1.53
-    },  {
-      name: 'Opera',
-      y: 1.40
-    }, {
-      name: 'Sogou Explorer',
-      y: 0.84
-    }, {
-      name: 'QQ',
-      y: 0.51
-    }, {
-      name: 'Other',
-      y: 2.6
-    }]
-  }]
-});
+    Highcharts.chart('container3', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Browser market shares in May, 2020',
+            align: 'left'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        accessibility: {
+            point: {
+            valueSuffix: '%'
+            }
+        },
+        plotOptions: {
+            pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+            }
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+            name: 'Chrome',
+            y: 70.67,
+            sliced: true,
+            selected: true
+            }, {
+            name: 'Edge',
+            y: 14.77
+            },  {
+            name: 'Firefox',
+            y: 4.86
+            }, {
+            name: 'Safari',
+            y: 2.63
+            }, {
+            name: 'Internet Explorer',
+            y: 1.53
+            },  {
+            name: 'Opera',
+            y: 1.40
+            }, {
+            name: 'Sogou Explorer',
+            y: 0.84
+            }, {
+            name: 'QQ',
+            y: 0.51
+            }, {
+            name: 'Other',
+            y: 2.6
+            }]
+        }]
+    });
 
 </script>
 
