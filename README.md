@@ -1,23 +1,21 @@
-<p align="center"><a href="https://hosinfo.tphcp.go.th" target="_blank"><img src="https://raw.githubusercontent.com/phichitonline/hosinfo-v2/main/public/assets/images/mis-hosinfo-logo-full.png" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://one.ppho.go.th" target="_blank"><img src="https://raw.githubusercontent.com/phichitonline/one-hospital-dashboard/main/public/assets/images/mis-hosinfo-logo-full.png" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
 
 </p>
 
-## About MIS HOS-info v.2 (2023)
+## About One Province One Hospital
 
-ระบบจัดการข้อมูลโรงพยาบาล สำหรับฐานข้อมูลโรงพยาบาลที่ใช้ HOSxP v.3
+ระบบจัดการข้อมูลโรงพยาบาล สำหรับสำนักงานสาธารณสุขจังหวัด
 
-- ข้อมูลและสถิติทุกระบบงาน
-- ข้อมูลราย Record ที่สามารถ export เป็น excel ได้
-- มีระบบตัวชี้วัดโรงพยาบาล ในรูปแบบ Scorecard Cockpit
+- ข้อมูลและสถิติ Dashboard
 
 ## การติดตั้งใช้งาน
 
 พัฒนาด้วย Laravel framework 9 + Livewire 2 รองรับ PHP เวอร์ชั่น 8.1 ขึ้นไป
 
-1. ติดตั้งด้วยคำสั่ง git clone https://github.com/phichitonline/hosinfo-v2.git
-2. ติดตั้ง Library ด้วยคำสั่ง composer install
+1. ติดตั้งด้วยคำสั่ง git clone https://github.com/phichitonline/one-hospital-dashboard.git
+2. ติดตั้ง Library ด้วยคำสั่ง composer update
 3. สร้างฐานข้อมูล
 4. copy ไฟล์ .env.example -> .env ตั้งค่าเชื่อมต่อฐานข้อมูล
 5. php artisan key:generate

@@ -26,8 +26,8 @@ return new class extends Migration
 
         DB::table('settings')->insert(
             array(
-                ['setting_name'=> 'hospital_name','setting_value'=> 'โรงพยาบาล','created_at'=> date("Y-m-d H:i:s"),'updated_at'=> date("Y-m-d H:i:s")],
-                ['setting_name'=> 'hospital_code','setting_value'=> '00000','created_at'=> date("Y-m-d H:i:s"),'updated_at'=> date("Y-m-d H:i:s")]
+                ['setting_name'=> 'hospital_name','setting_value'=> 'จังหวัดพิจิตร','created_at'=> date("Y-m-d H:i:s"),'updated_at'=> date("Y-m-d H:i:s")],
+                ['setting_name'=> 'hospital_code','setting_value'=> '66000','created_at'=> date("Y-m-d H:i:s"),'updated_at'=> date("Y-m-d H:i:s")]
             )
         );
     }
