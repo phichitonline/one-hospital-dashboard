@@ -9,7 +9,9 @@ use App\Http\Livewire\Stat\StatDent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DoctorController;
 use App\Http\Livewire\Dashboard\Dashboard;
+use App\Http\Controllers\DashboardController;
 use App\Http\Livewire\Dashboard\DashboardIpd;
 use App\Http\Livewire\Dashboard\DashboardOpd;
 
@@ -26,10 +28,14 @@ use App\Http\Livewire\Dashboard\DashboardOpd;
 
 Auth::routes();
 
+Route::get('/doctor', [DoctorController::class, 'doctor'])->name('doctor');
 
 Route::get('/searchuser', SearchUsers::class)->name('searchuser');
 
 Route::get('/', Dashboard::class)->name('dashboard');
+// Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/patient', [DashboardController::class, 'patient'])->name('patient');
+Route::get('/person', [DashboardController::class, 'person'])->name('person');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 

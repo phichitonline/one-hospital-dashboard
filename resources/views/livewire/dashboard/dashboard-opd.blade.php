@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="widget-progress-wrapper">
-                    <div class="progress-bar-lg progress-bar-animated progress">
+                    <div class="progress-bar-lg progress-bar-animated-alt progress">
                         <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{ $pt_opd_vnm * 100 / $pt_opd_vn_lastm }}"
                             aria-valuemin="0" aria-valuemax="100" style="width: {{ $pt_opd_vnm * 100 / $pt_opd_vn_lastm }}%;">
                         </div>
@@ -150,7 +150,7 @@
                     </div>
                 </div>
                 <div class="widget-progress-wrapper">
-                    <div class="progress-bar-lg progress">
+                    <div class="progress-bar-lg progress-bar-animated-alt progress">
                         <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="{{ $pt_opd_vnm * 100 / $pt_opd_vn_lastm }}"
                             aria-valuemin="0" aria-valuemax="100" style="width: {{ $pt_opd_vnm * 100 / $pt_opd_vn_lastm }}%;">
                         </div>

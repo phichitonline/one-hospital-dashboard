@@ -43,8 +43,6 @@
             </div>
             <div class="page-title-actions">
 
-                {{-- <button wire:click="$emit('postAdded')">AddPost</button> --}}
-
                 <select wire:model='year' name="year" id="year" class="btn-shadow dropdown-toggle btn-dashed btn btn-outline-primary">
                     <option value="2566">ปีงบประมาณ 2566</option>
                     <option value="2565">ปีงบประมาณ 2565</option>
@@ -264,138 +262,269 @@
 
     // Livewire.emit('year')
 
-    document.addEventListener('year', event => {
+        document.addEventListener('year', event => {
 
-        var ermonth = event.detail.ermonth;
-        var myeare = event.detail.myeare;
-        var erdril10 = event.detail.count_er_dril10;
-        var erdril11 = event.detail.count_er_dril11;
-        var erdril12 = event.detail.count_er_dril12;
-        var erdril1 = event.detail.count_er_dril1;
-        var erdril2 = event.detail.count_er_dril2;
-        var erdril3 = event.detail.count_er_dril3;
-        var erdril4 = event.detail.count_er_dril4;
-        var erdril5 = event.detail.count_er_dril5;
-        var erdril6 = event.detail.count_er_dril6;
-        var erdril7 = event.detail.count_er_dril7;
-        var erdril8 = event.detail.count_er_dril8;
-        var erdril9 = event.detail.count_er_dril9;
+            var year = event.detail.year;
+            var ermonth = event.detail.count_er_month;
+            var erdril10 = event.detail.count_er_dril10;
+            var erdril11 = event.detail.count_er_dril11;
+            var erdril12 = event.detail.count_er_dril12;
+            var erdril1 = event.detail.count_er_dril1;
+            var erdril2 = event.detail.count_er_dril2;
+            var erdril3 = event.detail.count_er_dril3;
+            var erdril4 = event.detail.count_er_dril4;
+            var erdril5 = event.detail.count_er_dril5;
+            var erdril6 = event.detail.count_er_dril6;
+            var erdril7 = event.detail.count_er_dril7;
+            var erdril8 = event.detail.count_er_dril8;
+            var erdril9 = event.detail.count_er_dril9;
+
+            Highcharts.chart('container-dent', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'ผู้รับบริการแผนกอุบัติเหตุและฉุกเฉิน ปีงบประมาณ '+year
+                },
+                subtitle: {
+                    text: '(ผู้รับบริการรายเดือน)<br>{{ $hospital_name['setting_value'] }}'
+                },
+                xAxis: {
+                    type: 'category'
+                },
+                yAxis: {
+                    title: {
+                        text: 'จำนวน(ราย)'
+                    }
+
+                },
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    series: {
+                        borderWidth: 0,
+                        dataLabels: {
+                            enabled: true,
+                            format: '{point.y:.0f}'
+                        }
+                    }
+                },
+
+                tooltip: {
+                    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}</b><br/>'
+                },
+
+                "series": [
+                    {
+                        "name": "ผู้รับบริการ ER",
+                        "colorByPoint": true,
+                        "data": ermonth
+                    }
+                ],
+                "drilldown": {
+                    // "series": erdril
+
+                    "series": [
+                        {
+                            "name": "ตุลาคม",
+                            "id": "ตุลาคม",
+                            "data": erdril10
+                        },
+                        {
+                            "name": "พฤศจิกายน",
+                            "id": "พฤศจิกายน",
+                            "data": erdril11
+                        },
+                        {
+                            "name": "ธันวาคม",
+                            "id": "ธันวาคม",
+                            "data": erdril12
+                        },
+                        {
+                            "name": "มกราคม",
+                            "id": "มกราคม",
+                            "data": erdril1
+                        },
+                        {
+                            "name": "กุมภาพันธ์",
+                            "id": "กุมภาพันธ์",
+                            "data": erdril2
+                        },
+                        {
+                            "name": "มีนาคม",
+                            "id": "มีนาคม",
+                            "data": erdril3
+                        },
+                        {
+                            "name": "เมษายน",
+                            "id": "เมษายน",
+                            "data": erdril4
+                        },
+                        {
+                            "name": "พฤษภาคม",
+                            "id": "พฤษภาคม",
+                            "data": erdril5
+                        },
+                        {
+                            "name": "มิถุนายน",
+                            "id": "มิถุนายน",
+                            "data": erdril6
+                        },
+                        {
+                            "name": "กรกฎาคม",
+                            "id": "กรกฎาคม",
+                            "data": erdril7
+                        },
+                        {
+                            "name": "สิงหาคม",
+                            "id": "สิงหาคม",
+                            "data": erdril8
+                        },
+                        {
+                            "name": "กันยายน",
+                            "id": "กันยายน",
+                            "data": erdril9
+                        }
+                    ]
+
+
+                }
+            });
+
+        });
+
+        var year = "2566";
+        var ermonth =  {{ Js::from($count_er_month) }};
+        var erdril10 =  {{ Js::from($count_er_dril10) }};
+        var erdril11 =  {{ Js::from($count_er_dril11) }};
+        var erdril12 =  {{ Js::from($count_er_dril12) }};
+        var erdril1 =  {{ Js::from($count_er_dril1) }};
+        var erdril2 =  {{ Js::from($count_er_dril2) }};
+        var erdril3 =  {{ Js::from($count_er_dril3) }};
+        var erdril4 =  {{ Js::from($count_er_dril4) }};
+        var erdril5 =  {{ Js::from($count_er_dril5) }};
+        var erdril6 =  {{ Js::from($count_er_dril6) }};
+        var erdril7 =  {{ Js::from($count_er_dril7) }};
+        var erdril8 =  {{ Js::from($count_er_dril8) }};
+        var erdril9 =  {{ Js::from($count_er_dril9) }};
 
         Highcharts.chart('container-dent', {
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'ผู้รับบริการแผนกอุบัติเหตุและฉุกเฉิน ปีงบประมาณ '+myeare
-        },
-        subtitle: {
-            text: '(ผู้รับบริการรายเดือน)<br>{{ $hospital_name['setting_value'] }}'
-        },
-        xAxis: {
-            type: 'category'
-        },
-        yAxis: {
+            chart: {
+                type: 'column'
+            },
             title: {
-                text: 'จำนวน(ราย)'
-            }
-
-        },
-        legend: {
-            enabled: false
-        },
-        plotOptions: {
-            series: {
-                borderWidth: 0,
-                dataLabels: {
-                    enabled: true,
-                    format: '{point.y:.0f}'
+                text: 'ผู้รับบริการแผนกอุบัติเหตุและฉุกเฉิน ปีงบประมาณ '+year
+            },
+            subtitle: {
+                text: '(ผู้รับบริการรายเดือน)<br>{{ $hospital_name['setting_value'] }}'
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'จำนวน(ราย)'
                 }
-            }
-        },
 
-        tooltip: {
-            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}</b><br/>'
-        },
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.0f}'
+                    }
+                }
+            },
 
-        "series": [
-            {
-                "name": "ผู้รับบริการ ER",
-                "colorByPoint": true,
-                "data": ermonth
-            }
-        ],
-        "drilldown": {
-            // "series": erdril
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}</b><br/>'
+            },
 
             "series": [
                 {
-                    "name": "ตุลาคม",
-                    "id": "ตุลาคม",
-                    "data": erdril10
-                },
-                {
-                    "name": "พฤศจิกายน",
-                    "id": "พฤศจิกายน",
-                    "data": erdril11
-                },
-                {
-                    "name": "ธันวาคม",
-                    "id": "ธันวาคม",
-                    "data": erdril12
-                },
-                {
-                    "name": "มกราคม",
-                    "id": "มกราคม",
-                    "data": erdril1
-                },
-                {
-                    "name": "กุมภาพันธ์",
-                    "id": "กุมภาพันธ์",
-                    "data": erdril2
-                },
-                {
-                    "name": "มีนาคม",
-                    "id": "มีนาคม",
-                    "data": erdril3
-                },
-                {
-                    "name": "เมษายน",
-                    "id": "เมษายน",
-                    "data": erdril4
-                },
-                {
-                    "name": "พฤษภาคม",
-                    "id": "พฤษภาคม",
-                    "data": erdril5
-                },
-                {
-                    "name": "มิถุนายน",
-                    "id": "มิถุนายน",
-                    "data": erdril6
-                },
-                {
-                    "name": "กรกฎาคม",
-                    "id": "กรกฎาคม",
-                    "data": erdril7
-                },
-                {
-                    "name": "สิงหาคม",
-                    "id": "สิงหาคม",
-                    "data": erdril8
-                },
-                {
-                    "name": "กันยายน",
-                    "id": "กันยายน",
-                    "data": erdril9
+                    "name": "ผู้รับบริการ ER",
+                    "colorByPoint": true,
+                    "data": ermonth
                 }
-            ]
+            ],
+            "drilldown": {
+                // "series": erdril
+
+                "series": [
+                    {
+                        "name": "ตุลาคม",
+                        "id": "ตุลาคม",
+                        "data": erdril10
+                    },
+                    {
+                        "name": "พฤศจิกายน",
+                        "id": "พฤศจิกายน",
+                        "data": erdril11
+                    },
+                    {
+                        "name": "ธันวาคม",
+                        "id": "ธันวาคม",
+                        "data": erdril12
+                    },
+                    {
+                        "name": "มกราคม",
+                        "id": "มกราคม",
+                        "data": erdril1
+                    },
+                    {
+                        "name": "กุมภาพันธ์",
+                        "id": "กุมภาพันธ์",
+                        "data": erdril2
+                    },
+                    {
+                        "name": "มีนาคม",
+                        "id": "มีนาคม",
+                        "data": erdril3
+                    },
+                    {
+                        "name": "เมษายน",
+                        "id": "เมษายน",
+                        "data": erdril4
+                    },
+                    {
+                        "name": "พฤษภาคม",
+                        "id": "พฤษภาคม",
+                        "data": erdril5
+                    },
+                    {
+                        "name": "มิถุนายน",
+                        "id": "มิถุนายน",
+                        "data": erdril6
+                    },
+                    {
+                        "name": "กรกฎาคม",
+                        "id": "กรกฎาคม",
+                        "data": erdril7
+                    },
+                    {
+                        "name": "สิงหาคม",
+                        "id": "สิงหาคม",
+                        "data": erdril8
+                    },
+                    {
+                        "name": "กันยายน",
+                        "id": "กันยายน",
+                        "data": erdril9
+                    }
+                ]
 
 
-        }
-    });
+            }
+        });
 
-    });
+    // });
 
     </script>
 

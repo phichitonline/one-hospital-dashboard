@@ -90,6 +90,7 @@
         <script type="text/javascript" src="{{asset('assets/vendors/jquery.fancytree/dist/jquery.fancytree-all-deps.min.js') }}"></script>
         <script type="text/javascript" src="{{asset('assets/vendors/apexcharts/dist/apexcharts.min.js') }}"></script>
         <!-- custome.js -->
+
         <script type="text/javascript" src="{{asset('assets/js/charts/apex-charts.js') }}"></script>
         <script type="text/javascript" src="{{asset('assets/js/circle-progress.js') }}"></script>
         <script type="text/javascript" src="{{asset('assets/js/demo.js') }}"></script>

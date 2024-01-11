@@ -2,10 +2,10 @@
 
 @section('pagetitle', 'Home')
 
-@section('activemenu_home', 'mm-active')
+{{-- @section('activemenu_setting', 'mm-active') --}}
+@section('activemenu_profile', 'mm-active')
 
 @section('content')
-
 
     <div class="app-page-title app-page-title-simple">
         <div class="page-title-wrapper">
