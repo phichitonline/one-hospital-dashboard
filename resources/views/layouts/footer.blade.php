@@ -1,7 +1,7 @@
 <div class="app-footer">
     <div class="app-footer__inner">
         <div class="app-footer-left">
-            Copyright&copy;2023 
+            Copyright&copy;2024
             {{ $hospital_name['setting_value'] }}
         </div>
         <div class="app-footer-right">
