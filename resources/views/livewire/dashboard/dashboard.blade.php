@@ -27,160 +27,6 @@
     </div>
 </div>
 
-@foreach ($h11456['data'] as $data)
-@php
-    $h11456_ptm_ipd_hn = $data['ptm_ipd_hn'];
-    $h11456_ptm_ipd_an = $data['ptm_ipd_an'];
-    $h11456_pt_ipd_today = $data['pt_ipd_today'];
-    $h11456_ptm_ipd_vn_last = $data['ptm_ipd_vn_last'];
-    $h11456_ipt_admit = $data['ipt_admit'];
-    $h11456_empty_bed = $data['empty_bed'];
-    $h11456_bed_count = $data['bed_count'];
-@endphp
-@endforeach
-
-@foreach ($h11263['data'] as $data)
-@php
-    $h11263_ptm_ipd_hn = $data['ptm_ipd_hn'];
-    $h11263_ptm_ipd_an = $data['ptm_ipd_an'];
-    $h11263_pt_ipd_today = $data['pt_ipd_today'];
-    $h11263_ptm_ipd_vn_last = $data['ptm_ipd_vn_last'];
-    $h11263_ipt_admit = $data['ipt_admit'];
-    $h11263_empty_bed = $data['empty_bed'];
-    $h11263_bed_count = $data['bed_count'];
-@endphp
-@endforeach
-
-@foreach ($h10726['data'] as $data)
-@php
-    $h10726_ptm_ipd_hn = $data['ptm_ipd_hn'];
-    $h10726_ptm_ipd_an = $data['ptm_ipd_an'];
-    $h10726_pt_ipd_today = $data['pt_ipd_today'];
-    $h10726_ptm_ipd_vn_last = $data['ptm_ipd_vn_last'];
-    $h10726_ipt_admit = $data['ipt_admit'];
-    $h10726_empty_bed = $data['empty_bed'];
-    $h10726_bed_count = $data['bed_count'];
-@endphp
-@endforeach
-
-@foreach ($h11258['data'] as $data)
-@php
-    $h11258_ptm_ipd_hn = $data['ptm_ipd_hn'];
-    $h11258_ptm_ipd_an = $data['ptm_ipd_an'];
-    $h11258_pt_ipd_today = $data['pt_ipd_today'];
-    $h11258_ptm_ipd_vn_last = $data['ptm_ipd_vn_last'];
-    $h11258_ipt_admit = $data['ipt_admit'];
-    $h11258_empty_bed = $data['empty_bed'];
-    $h11258_bed_count = $data['bed_count'];
-@endphp
-@endforeach
-
-@foreach ($h27978['data'] as $data)
-@php
-    $h27978_ptm_ipd_hn = $data['ptm_ipd_hn'];
-    $h27978_ptm_ipd_an = $data['ptm_ipd_an'];
-    $h27978_pt_ipd_today = $data['pt_ipd_today'];
-    $h27978_ptm_ipd_vn_last = $data['ptm_ipd_vn_last'];
-    $h27978_ipt_admit = $data['ipt_admit'];
-    $h27978_empty_bed = 0;
-    $h27978_bed_count = 0;
-@endphp
-@endforeach
-
-@foreach ($h27979['data'] as $data)
-@php
-    $h27979_ptm_ipd_hn = $data['ptm_ipd_hn'];
-    $h27979_ptm_ipd_an = $data['ptm_ipd_an'];
-    $h27979_pt_ipd_today = $data['pt_ipd_today'];
-    $h27979_ptm_ipd_vn_last = $data['ptm_ipd_vn_last'];
-    $h27979_ipt_admit = $data['ipt_admit'];
-    $h27979_empty_bed = $data['empty_bed'];
-    $h27979_bed_count = $data['bed_count'];
-@endphp
-@endforeach
-
-@foreach ($h11260['data'] as $data)
-@php
-    $h11260_ptm_ipd_hn = $data['ptm_ipd_hn'];
-    $h11260_ptm_ipd_an = $data['ptm_ipd_an'];
-    $h11260_pt_ipd_today = $data['pt_ipd_today'];
-    $h11260_ptm_ipd_vn_last = $data['ptm_ipd_vn_last'];
-    $h11260_ipt_admit = $data['ipt_admit'];
-    $h11260_empty_bed = $data['empty_bed'];
-    $h11260_bed_count = $data['bed_count'];
-@endphp
-@endforeach
-
-@foreach ($h11631['data'] as $data)
-@php
-    $h11631_ptm_ipd_hn = $data['ptm_ipd_hn'];
-    $h11631_ptm_ipd_an = $data['ptm_ipd_an'];
-    $h11631_pt_ipd_today = $data['pt_ipd_today'];
-    $h11631_ptm_ipd_vn_last = $data['ptm_ipd_vn_last'];
-    $h11631_ipt_admit = $data['ipt_admit'];
-    $h11631_empty_bed = $data['empty_bed'];
-    $h11631_bed_count = $data['bed_count'];
-@endphp
-@endforeach
-
-{{-- @foreach ($h11261['data'] as $data) --}}
-@php
-    $h11261_ptm_ipd_hn = 0;
-    $h11261_ptm_ipd_an = 0;
-    $h11261_pt_ipd_today = 0;
-    $h11261_ptm_ipd_vn_last = 0;
-    $h11261_ipt_admit = 0;
-    $h11261_empty_bed = 0;
-    $h11261_bed_count = 0;
-@endphp
-{{-- @endforeach --}}
-
-{{-- @foreach ($h11262['data'] as $data) --}}
-@php
-    $h11262_ptm_ipd_hn = 0;
-    $h11262_ptm_ipd_an = 0;
-    $h11262_pt_ipd_today = 0;
-    $h11262_ptm_ipd_vn_last = 0;
-    $h11262_ipt_admit = 0;
-    $h11262_empty_bed = 0;
-    $h11262_bed_count = 0;
-@endphp
-{{-- @endforeach --}}
-
-{{-- @foreach ($h11259['data'] as $data) --}}
-@php
-    $h11259_ptm_ipd_hn = 0;
-    $h11259_ptm_ipd_an = 0;
-    $h11259_pt_ipd_today = 0;
-    $h11259_ptm_ipd_vn_last = 0;
-    $h11259_ipt_admit = 0;
-    $h11259_empty_bed = 0;
-    $h11259_bed_count = 0;
-@endphp
-{{-- @endforeach --}}
-
-@foreach ($h27980['data'] as $data)
-@php
-    $h27980_ptm_ipd_hn = $data['ptm_ipd_hn'];
-    $h27980_ptm_ipd_an = $data['ptm_ipd_an'];
-    $h27980_pt_ipd_today = $data['pt_ipd_today'];
-    $h27980_ptm_ipd_vn_last = $data['ptm_ipd_vn_last'];
-    $h27980_ipt_admit = $data['ipt_admit'];
-    $h27980_empty_bed = $data['empty_bed'];
-    $h27980_bed_count = $data['bed_count'];
-@endphp
-@endforeach
-
-@php
-    $ptm_ipd_hn = $h11263_ptm_ipd_hn + $h11456_ptm_ipd_hn + $h10726_ptm_ipd_hn + $h11258_ptm_ipd_hn + $h27978_ptm_ipd_hn + $h27979_ptm_ipd_hn + $h11260_ptm_ipd_hn + $h11631_ptm_ipd_hn + $h11261_ptm_ipd_hn + $h11262_ptm_ipd_hn + $h11259_ptm_ipd_hn + $h27980_ptm_ipd_hn;
-    $ptm_ipd_an = $h11263_ptm_ipd_an + $h11456_ptm_ipd_an + $h10726_ptm_ipd_an + $h11258_ptm_ipd_an + $h27978_ptm_ipd_an + $h27979_ptm_ipd_an + $h11260_ptm_ipd_an + $h11631_ptm_ipd_an + $h11261_ptm_ipd_an + $h11262_ptm_ipd_an + $h11259_ptm_ipd_an + $h27980_ptm_ipd_an;
-    $pt_ipd_today = $h11263_pt_ipd_today + $h11456_pt_ipd_today + $h10726_pt_ipd_today + $h11258_pt_ipd_today + $h27978_pt_ipd_today + $h27979_pt_ipd_today + $h11260_pt_ipd_today + $h11631_pt_ipd_today + $h11261_pt_ipd_today + $h11262_pt_ipd_today + $h11259_pt_ipd_today + $h27980_pt_ipd_today;
-    $ptm_ipd_vn_last = $h11263_ptm_ipd_vn_last + $h11456_ptm_ipd_vn_last + $h10726_ptm_ipd_vn_last + $h11258_ptm_ipd_vn_last + $h27978_ptm_ipd_vn_last + $h27979_ptm_ipd_vn_last + $h11260_ptm_ipd_vn_last + $h11631_ptm_ipd_vn_last + $h11261_ptm_ipd_vn_last + $h11262_ptm_ipd_vn_last + $h11259_ptm_ipd_vn_last + $h27980_ptm_ipd_vn_last;
-    $ipt_admit = $h11263_ipt_admit + $h11456_ipt_admit + $h10726_ipt_admit + $h11258_ipt_admit + $h27978_ipt_admit + $h27979_ipt_admit + $h11260_ipt_admit + $h11631_ipt_admit + $h11261_ipt_admit + $h11262_ipt_admit + $h11259_ipt_admit + $h27980_ipt_admit;
-    $empty_bed = $h11263_empty_bed + $h11456_empty_bed + $h10726_empty_bed + $h11258_empty_bed + $h27978_empty_bed + $h27979_empty_bed + $h11260_empty_bed + $h11631_empty_bed + $h11261_empty_bed + $h11262_empty_bed + $h11259_empty_bed + $h27980_empty_bed;
-    $bed_count = $h11263_bed_count + $h11456_bed_count + $h10726_bed_count + $h11258_bed_count + $h27978_bed_count + $h27979_bed_count + $h11260_bed_count + $h11631_bed_count + $h11261_bed_count + $h11262_bed_count + $h11259_bed_count + $h27980_bed_count;
-@endphp
-
 {{-- สรุป OPD,IPD,ER --}}
 <div class="row">
     <div class="col-md-4">
@@ -261,14 +107,14 @@
                         </div>
                         <div class="widget-description ms-auto text-white">
                             <i class="fa fa-angle-down"></i>
-                            <span class="ps-1">{{ number_format($pt_er_hn * 100 / $ptm_er_vn_lastm,0) }}%</span>
+                            <span class="ps-1">{{ number_format($er_percent,0) }}%</span>
                         </div>
                     </div>
                 </div>
                 <div class="widget-progress-wrapper">
                     <div class="progress-bar-lg progress-bar-animated-alt progress">
-                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="{{ $pt_er_vn * 100 / $ptm_er_vn_lastm }}"
-                            aria-valuemin="0" aria-valuemax="100" style="width: {{ $pt_er_vn * 100 / $ptm_er_vn_lastm }}%;">
+                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="{{ $er_percent }}"
+                            aria-valuemin="0" aria-valuemax="100" style="width: {{ $er_percent }}%;">
                         </div>
                     </div>
                     <div class="progress-sub-label text-white">เดือนนี้ {{ number_format($pt_er_hn,0) }} คน/{{ number_format($pt_er_vn,0) }} ครั้ง</div>
