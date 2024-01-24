@@ -5,7 +5,6 @@
 @section('activemenu_dashboard', 'mm-active')
 @section('activemenu_dashboard_home', 'mm-active')
 
-{{-- @section('content') --}}
 
 <div class="app-page-title">
     <div class="page-title-wrapper">
@@ -317,7 +316,6 @@
     </div>
 </div> --}}
 
-{{-- @endsection --}}
 
 @section('footer-script')
 

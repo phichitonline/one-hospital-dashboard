@@ -44,6 +44,7 @@
             <div class="page-title-actions">
 
                 <select wire:model='year' name="year" id="year" class="btn-shadow dropdown-toggle btn-dashed btn btn-outline-primary">
+                    <option value="2567">ปีงบประมาณ 2567</option>
                     <option value="2566">ปีงบประมาณ 2566</option>
                     <option value="2565">ปีงบประมาณ 2565</option>
                     <option value="2564">ปีงบประมาณ 2564</option>
@@ -395,7 +396,7 @@
 
         });
 
-        var year = "2566";
+        var year = "2567";
         var ermonth =  {{ Js::from($count_er_month) }};
         var erdril10 =  {{ Js::from($count_er_dril10) }};
         var erdril11 =  {{ Js::from($count_er_dril11) }};
